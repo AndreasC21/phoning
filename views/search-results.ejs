@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phoning</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!--include css bootstrap-->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!--icon-->
+  </head>
+  <body>
+    <!-- Include Navbar -->
+    <%- include('partials/navbar') %>
+
+    <!-- Khusus Untukmu -->
+    <div class="promo">
+      <h2 class="fy">Hasil Pencarian untuk: <%= query %></h2>
+      <% if(phone.length > 0) { %>
+      <div class="gallery">
+        <% phone.forEach(phone => { %>
+        <div class="card">
+          <a href="/merk/<%= phone.nama_merk %>/<%= phone.nama_phone %>">
+            <img src="<%= phone.img_phone %>" alt="<%= phone.nama_phone %>" />
+            <div class="desc">
+              <h5 class="name">
+                <%= phone.nama_phone %> <%= phone.description %>
+              </h5>
+              <p1>Rp <%= (phone.harga).toLocaleString('id-ID') %></p1> <br />
+              <p2>Rp <%= (phone.harga + 500000).toLocaleString('id-ID') %></p2>
+            </div>
+          </a>
+        </div>
+        <% }); %>
+      </div>
+      <% } else { %>
+      <p>Tidak ada hasil yang ditemukan.</p>
+      <% } %>
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+
+    <!-- Include Bootstrap JS dan script lainnya -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

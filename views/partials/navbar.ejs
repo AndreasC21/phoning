@@ -1,0 +1,203 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container-fluid">
+    <!--Judul Web-->
+    <span class="navbar-brand">Phoning</span>
+
+    <!--Search Bar -->
+    <div class="ms-4">
+      <form class="d-flex" action="/search" method="GET">
+        <input
+          class="form-control me-2"
+          type="text"
+          name="query"
+          placeholder="Cari ponsel apa nih?"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+
+    <!--Tombol togle navbar-->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!-- Icon keranjang -->
+        <li class="nav-item mx-3">
+          <a class="nav-link" href="/cart/">
+            <i class="bi bi-cart-dash"></i>
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link active" aria-current="page" href="/"> Home</a>
+        </li>
+        <!-- Tombol Login, mengaktifkan modal login -->
+        <li class="nav-item mx-3">
+          <% if (user) { %>
+          <div class="user-dropdown nav-item">
+            <a class="nav-link" href="#"> <%= user.name %> </a>
+            <div class="user-dropdown-content">
+              <a href="/profile">Profile</a>
+              <a href="/history">History</a>
+              <a href="/auth/logout">Logout</a>
+            </div>
+          </div>
+          <% } else { %>
+          <a
+            class="nav-link"
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#loginModal"
+            >Login</a
+          >
+          <% } %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal untuk Login dan Buat Akun -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login / Buat Akun</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Tab untuk Login dan Buat Akun -->
+        <ul class="nav nav-tabs" id="loginSignupTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link active"
+              id="login-tab"
+              data-bs-toggle="tab"
+              href="#login"
+              role="tab"
+              aria-controls="login"
+              aria-selected="true"
+              >Login</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link"
+              id="signup-tab"
+              data-bs-toggle="tab"
+              href="#signup"
+              role="tab"
+              aria-controls="signup"
+              aria-selected="false"
+              >Buat Akun</a
+            >
+          </li>
+        </ul>
+        <div class="tab-content" id="loginSignupTabsContent">
+          <!-- Form Login -->
+          <div
+            class="tab-pane fade show active"
+            id="login"
+            role="tabpanel"
+            aria-labelledby="login-tab"
+          >
+            <form action="/auth/login" method="POST">
+              <div class="mb-3">
+                <label for="name" class="form-label">Nama Pengguna</label>
+                <input
+                  type="name"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Masukkan nama pengguna"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Kata Sandi</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Masukkan kata sandi"
+                />
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Masuk</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Form Buat Akun -->
+          <div
+            class="tab-pane fade"
+            id="signup"
+            role="tabpanel"
+            aria-labelledby="signup-tab"
+          >
+            <form action="/auth/register" , method="POST">
+              <div class="mb-3">
+                <label for="name" class="form-label">Nama</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Masukkan nama"
+                  minlength="5"
+                  maxlength="20"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Kata Sandi</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Masukkan kata sandi"
+                  minlength="4"
+                  maxlength="30"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="passwordConfirm" class="form-label"
+                  >Konfirmasi Kata Sandi</label
+                >
+                <input
+                  type="password"
+                  name="passwordConfirm"
+                  class="form-control"
+                  id="passwordConfirm"
+                  placeholder="Konfirmasi kata sandi"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Buat Akun</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

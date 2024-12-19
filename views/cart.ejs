@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phoning - Cart</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!--include css bootstrap-->
+    <link rel="stylesheet" href="/css/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!--icon-->
+  </head>
+  <body>
+    <!-- Include Navbar -->
+    <%- include('partials/navbar') %>
+
+    <!-- Cart -->
+
+    <div class="cart-container">
+      <div class="cart-header">
+        <div></div>
+        <div>Produk</div>
+        <div>Harga Satuan</div>
+        <div>Kuantitas</div>
+        <div>Total Harga</div>
+        <div>Aksi</div>
+      </div>
+
+      <% if(cartItems.length > 0) { %> <% cartItems.forEach((phone) => { %>
+      <div class="cart-item" data-cart-id="<%= phone.id_cart %>">
+        <input
+          type="radio"
+          name="selectedItem"
+          class="item-checkbox"
+          data-phone-id="<%= phone.id_phone %>"
+        />
+        <div class="product-info">
+          <img
+            src="<%= phone.img_phone %>"
+            alt="<%= phone.nama_phone %>"
+            class="product-image"
+          />
+          <div class="desc">
+            <div>
+              <strong><big><%=phone.nama_phone%></big></strong>
+            </div>
+            <div><small>Variasi: <%= phone.description %></small></div>
+          </div>
+        </div>
+
+        <div class="price">
+          <del class="price" id="price-before-<%= phone.id_cart %>">
+            Rp<%= (phone.harga+500000).toLocaleString('id-ID') %>
+          </del>
+          <div class="price" id="price-original-<%= phone.id_cart %>">
+            Rp<%= phone.harga.toLocaleString('id-ID') %>
+          </div>
+        </div>
+
+        <div class="quantity-controls">
+          <button
+            class="quantity-btn decrease"
+            data-cart-id="<%= phone.id_cart %>"
+          >
+            -
+          </button>
+          <input
+            type="text"
+            value="<%= phone.quantity %>"
+            class="quantity-input"
+          />
+          <button
+            class="quantity-btn increase"
+            data-cart-id="<%= phone.id_cart %>"
+          >
+            +
+          </button>
+        </div>
+
+        <div class="price total-price" id="total-price-<%= phone.id_cart %>">
+          Rp<%= (phone.harga * phone.quantity).toLocaleString('id-ID') %>
+        </div>
+        <input type="hidden" name="cartId" value="<%= phone.id_cart %>" />
+        <div>
+          <button class="remove-btn" data-cart-id="<%= phone.id_cart %>">
+            Hapus
+          </button>
+        </div>
+      </div>
+      <% }); %> <% } else { %>
+      <p id="kosong">Tidak ada barang dalam keranjang</p>
+      <% } %>
+    </div>
+
+    <!-- Cart Footer -->
+    <div class="cart-footer">
+      <div class="vocher">
+        <!-- <div class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-ticket-perforated"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M4 4.85v.9h1v-.9zm7 0v.9h1v-.9zm-7 1.8v.9h1v-.9zm7 0v.9h1v-.9zm-7 1.8v.9h1v-.9zm7 0v.9h1v-.9zm-7 1.8v.9h1v-.9zm7 0v.9h1v-.9z"
+            />
+            <path
+              d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3zM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9z"
+            />
+          </svg>
+        </div>
+        <p><strong>Lihat Voucher</strong></p>
+        <div class="voc">
+          <a href="#">Gunakan/masukan kode</a>
+        </div> -->
+      </div>
+
+      <div class="checkout-section">
+        <div></div>
+        <button type="button" id="checkout-btn" class="checkout-btn">
+          <span>Checkout</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+
+    <!-- Include Bootstrap JS -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/cart.js"></script>
+  </body>
+</html>

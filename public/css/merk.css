@@ -1,0 +1,219 @@
+.navbar {
+  background-color: #1f2d51;
+  font-weight: bold;
+}
+
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+  top: 100%;
+  border-radius: 5px;
+}
+
+.user-dropdown:hover .user-dropdown-content {
+  display: block;
+}
+
+.user-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.user-dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .poster h1 {
+    font-size: 2rem;
+  }
+  .poster p {
+    font-size: 1rem;
+  }
+}
+
+/* Modal Styling */
+.modal-dialog {
+  max-width: 400px;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: rgb(21, 21, 141);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #1a1a9a;
+}
+
+.breadcrumb {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.breadcrumb-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: #6c757d;
+  font-weight: bold;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Agar kartu bisa turun ke baris berikutnya */
+  gap: 20px; /* Jarak antar kartu */
+  justify-content: center;
+  margin-top: 20px; /* Jarak antara navbar dan kartu */
+  padding: 10px;
+}
+
+.card {
+  width: 14rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  overflow: hidden;
+}
+
+.card img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-price {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.discounted-price {
+  display: block;
+  font-size: 1.25rem; /* Ukuran besar untuk harga diskon */
+  color: #000; /* Warna hitam untuk harga diskon */
+  font-weight: bold; /* Teks lebih tebal */
+  margin-bottom: 5px; /* Jarak bawah antara harga diskon dan harga asli */
+}
+
+.original-price {
+  display: block;
+  font-size: 1rem; /* Ukuran lebih kecil untuk harga yang dicoret */
+  color: #999; /* Warna abu-abu untuk harga yang dicoret */
+  text-decoration: line-through rgba(255, 0, 0, 0.655); /* garis coret*/
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #1a1a9a;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.card:hover {
+  transform: scale(1.09);
+  transition: transform 0.3s ease;
+}
+
+.footer-container {
+  margin-top: 50px;
+  background-color: #f5f4ff;
+  color: #291c4d;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 13px;
+  border-top: 1px solid #c9c5d5;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-title {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.footer-column p,
+.footer-column ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin: 10px 0;
+}
+
+.footer-column a {
+  color: #291c4d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #6172f4;
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: #291c4d;
+}

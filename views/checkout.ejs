@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phoning - Checkout</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!--include css bootstrap-->
+    <link rel="stylesheet" href="/css/co.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!--icon-->
+    <script
+      type="text/javascript"
+      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      data-client-key="<%= clientKey %>"
+    ></script>
+  </head>
+  <body>
+    <!-- Nav -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <h2>
+            <strong><a href="/">Phoning</a></strong>
+          </h2>
+        </div>
+        <div>
+          <strong>Checkout</strong>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+      <!-- Shipping Address -->
+      <section class="card address-card">
+        <h4 class="section-title">
+          <i class="icon-location">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-geo-alt-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+              />
+            </svg>
+          </i>
+          Alamat Pengiriman
+        </h4>
+
+        <div class="address-details">
+          <div class="penerima">
+            <span class="name"><%= user.name %></span>
+            <span class="telepon"><%= no_telp %></span>
+          </div>
+          <div class="address"><%= alamat %></div>
+          <form action="/profile">
+            <div class="address-actions">
+              <button type="submit" class="btn-change">Ubah</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Products -->
+      <section class="card products-card">
+        <div class="head-co">
+          <strong>Produk Dipesan</strong>
+          <span class="hl">
+            <p class="hl1">Harga Satuan</p>
+            <p class="hl2">Jumlah</p>
+            <p class="hl3">Subtotal Produk</p>
+          </span>
+        </div>
+
+        <div class="store">
+          <div class="s-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-shop"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.37 2.37 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5M4 15h3v-5H4zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm3 0h-2v3h2z"
+              />
+            </svg>
+          </div>
+          <strong><%= namaMerk %></strong>
+        </div>
+
+        <div class="product-item">
+          <img src="<%= img %>" class="product-image" alt="<%= namaMerk %>" />
+          <div class="product-details">
+            <div class="product-name">
+              <div class="p-name">
+                <h5><%= namaPhone %></h5>
+                <p class="var">Variant : Titanium Black</p>
+                <span class="p-hl">
+                  <p class="hl4">Rp<%= harga.toLocaleString('id-ID') %></p>
+                  <p class="hl5"><%= jumlah %></p>
+                  <p class="hl6">Rp<%= hargaAsli.toLocaleString('id-ID') %></p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vouchers -->
+      <section class="card voucher-card">
+        <div class="vocher">
+          <div class="pesan-container">
+            <label for="pesan">Pesan:</label>
+            <textarea
+              id="pesan"
+              placeholder="(Opsional) Tinggalkan pesan ke penjual"
+            ></textarea>
+          </div>
+
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-ticket-perforated"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M4 4.85v.9h1v-.9zm7 0v.9h1v-.9zm-7 1.8v.9h1v-.9zm7 0v.9h1v-.9zm-7 1.8v.9h1v-.9zm7 0v.9h1v-.9zm-7 1.8v.9h1v-.9zm7 0v.9h1v-.9z"
+              />
+              <path
+                d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3zM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9z"
+              />
+            </svg>
+          </div>
+          <p></p>
+          <div class="voucher-section">
+            <label for="voucher-code">Kode Voucher:</label>
+            <input
+              type="text"
+              id="voucherCode"
+              placeholder="Masukkan kode voucher"
+            />
+            <button
+              onclick="applyVoucher()"
+              id="apply-voucher"
+              class="vo-button"
+            >
+              Terapkan
+            </button>
+            <p id="voucherMessage"></p>
+          </div>
+        </div>
+
+        <!-- Shipping -->
+        <div class="shipping-option">
+          <div class="kirim">
+            <h4><strong>Pengiriman Regular</strong></h4>
+            <!-- <a href="" class="ganti">Ubah</a> -->
+            <span class="ongkir"
+              >Rp<%= shipping.toLocaleString('id-ID') %></span
+            >
+          </div>
+          <p class="estimasi">Estimasi waktu tiba: 3 hari</p>
+        </div>
+      </section>
+
+      <div class="payment-summary">
+        <div class="summary-item">
+          <span>Subtotal untuk Produk</span>
+          <span id="totalHarga">Rp<%=hargaAsli.toLocaleString('id-ID')%></span>
+        </div>
+      </div>
+
+      <div class="summary-item">
+        <span>Diskon</span>
+        <span id="diskon">Rp0</span>
+      </div>
+
+      <div class="summary-item">
+        <span>Subtotal Pengiriman</span>
+        <span>Rp<%= shipping.toLocaleString('id-ID') %></span>
+      </div>
+
+      <div class="summary-item">
+        <span>Biaya Layanan <span class="info">(?)</span></span>
+        <span>Rp<%= fee.toLocaleString('id-ID') %></span>
+      </div>
+
+      <div class="to-all">
+        <span>Total Pembayaran</span>
+        <span id="totalPembayaran"
+          >Rp<%=totalHarga.toLocaleString('id-ID')%></span
+        >
+      </div>
+
+      <input type="hidden" id="phoneId" value="<%= phoneId %>" />
+      <input type="hidden" id="quantity" value="<%= jumlah %>" />
+      <input type="hidden" id="shipping" value="<%= shipping %>" />
+      <input type="hidden" id="fee" value="<%= fee %>" />
+      <input type="hidden" id="hargaAsli" value="<%= hargaAsli %>" />
+      <input type="hidden" id="grossAmount" value="<%= totalHarga %>" />
+      <input type="hidden" id="firstName" value="<%= user.name %>" />
+      <input type="hidden" id="email" value="<%= email %>" />
+      <input type="hidden" id="phone" value="<%= no_telp %>" />
+      <div class="order-button">
+        <button type="submit" id="pay-button">Buat Pesanan</button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/checkout.js"></script>
+  </body>
+</html>

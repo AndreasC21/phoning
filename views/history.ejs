@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Histori Pembelian</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <!--include css bootstrap-->
+    <link rel="stylesheet" href="/css/history.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!--icon-->
+  </head>
+  <body>
+    <!-- Include Navbar -->
+    <%- include('partials/navbar') %>
+
+    <div class="container">
+      <!-- Sidebar Kiri -->
+      <div class="sidebar">
+        <div class="profile">
+          <img
+            src="<%= userData.img || '/img/boci.png' %>"
+            alt="Foto Profil"
+            class="profile-img"
+          />
+          <div class="profile-info">
+            <p class="profile-name"><%= userData.name %></p>
+            <a href="profile" class="edit-profile">Ubah Profil</a>
+          </div>
+        </div>
+        <ul class="menu">
+          <li><a href="profile">Akun Saya</a></li>
+          <li><a href="history">Riwayat Pesanan</a></li>
+        </ul>
+      </div>
+
+      <!-- Konten Riwayat Pesanan -->
+      <div class="content">
+        <% orders.forEach((orders) => { %>
+        <div class="order-history">
+          <div class="order-item">
+            <img
+              src="<%= orders.img_phone %>"
+              alt="Gambar HP"
+              class="order-img"
+            />
+            <div class="order-details">
+              <h3><%= orders.nama_phone%></h3>
+              <% if(orders.status == 'pending') { %>
+              <p>
+                Pesanan nomor: <strong><%= orders.id_order %></strong> belum
+                dibayar.
+              </p>
+              <% } %> <% if (orders.status == 'on progress') { %>
+              <p>
+                Pesanan nomor: <strong><%= orders.id_order %></strong> akan
+                segera dikirim.
+              </p>
+              <% } %> <% if (orders.status == 'canceled') { %>
+              <p>
+                Pesanan nomor:
+                <strong><%= orders.id_order %></strong> dibatalkan.
+              </p>
+              <% } %> <% if (orders.status == 'completed') { %>
+              <p>
+                Pesanan nomor: <strong><%= orders.id_order %></strong> berhasil
+                dikirim dan diterima.
+              </p>
+              <% } %>
+              <p>
+                Tanggal:
+                <span><%= orders.order_date.toLocaleString('id-ID') %></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+    <!-- Include Bootstrap JS -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
