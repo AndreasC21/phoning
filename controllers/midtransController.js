@@ -42,9 +42,9 @@ module.exports = {
       },
       //REDIRECT KE LINK BERIKUT SETELAH PROSES PEMBAYARAN
       callbacks: {
-        finish: "http://localhost:3000/auth/payment/finish",
-        error: "http://localhost:3000/auth/payment/error",
-        pending: "http://localhost:3000/auth/payment/pending",
+        finish: "https://phoning.vercel.app/auth/payment/finish",
+        error: "https://phoning.vercel.app/auth/payment/error",
+        pending: "https://phoning.vercel.app/auth/payment/pending",
       },
     };
 

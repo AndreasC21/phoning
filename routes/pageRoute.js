@@ -76,8 +76,9 @@ router.get("/checkout", protectRoute, (req, res) => {
 
 //MENAMPILKAN PAGE CHECKOUT YANG DATANYA DIAMBIL DARI PEMBELIAN PHONE, USER
 router.post("/checkout", protectRoute, (req, res) => {
-  const { phoneId, namaPhone, namaMerk, harga, quantity, img } = req.body;
+  const { phoneId, namaPhone, namaMerk, harga, quantity, img, desc } = req.body;
   const clientKey = process.env.MT_CLIENTKEY;
+  console.log(req.body);
 
   const shipping = 25000;
 
@@ -101,6 +102,7 @@ router.post("/checkout", protectRoute, (req, res) => {
         harga: harga,
         jumlah: quantity,
         fee: fee,
+        desc: desc,
         shipping: shipping,
         hargaAsli: hargaAsli,
         totalHarga: totalHarga,

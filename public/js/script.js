@@ -19,3 +19,16 @@ scrollRightButton.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("popup");
+  const closeButton = document.getElementById("close-popup");
+
+  // Tampilkan popup
+  popup.style.display = "block";
+
+  // Tutup popup saat tombol ditekan
+  closeButton.addEventListener("click", function () {
+    popup.style.display = "none";
+  });
+});

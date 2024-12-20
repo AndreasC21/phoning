@@ -104,7 +104,7 @@
             <div class="product-name">
               <div class="p-name">
                 <h5><%= namaPhone %></h5>
-                <p class="var">Variant : Titanium Black</p>
+                <p class="var"><%= desc %></p>
                 <span class="p-hl">
                   <p class="hl4">Rp<%= harga.toLocaleString('id-ID') %></p>
                   <p class="hl5"><%= jumlah %></p>
@@ -203,6 +203,12 @@
         <span id="totalPembayaran"
           >Rp<%=totalHarga.toLocaleString('id-ID')%></span
         >
+      </div>
+
+      <div id="popup" class="popup" style="display: none">
+        <h2>Peringatan</h2>
+        <p id="popup-message"></p>
+        <button id="close-popup">Tutup</button>
       </div>
 
       <input type="hidden" id="phoneId" value="<%= phoneId %>" />

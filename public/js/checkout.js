@@ -1,10 +1,27 @@
+// Fungsi untuk menampilkan popup
+function showPopup(message) {
+  const popup = document.getElementById("popup");
+  const popupMessage = document.getElementById("popup-message");
+  popupMessage.innerText = message;
+  popup.style.display = "block";
+}
+
+document.getElementById("close-popup").addEventListener("click", function () {
+  document.getElementById("popup").style.display = "none";
+});
+
 payButton = document.getElementById("pay-button");
 
 //BUTTON ORDER NANTI MEMANGGIL MIDTRANS
 payButton.addEventListener("click", function () {
+  const email = document.getElementById("email").value;
+  if (!email) {
+    showPopup("Email tidak boleh kosong!");
+    return;
+  }
+
   const firstName = document.getElementById("firstName").value;
   const lastName = "";
-  const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
   const phoneId = document.getElementById("phoneId").value;
   const quantity = document.getElementById("quantity").value;

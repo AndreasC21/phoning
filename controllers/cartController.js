@@ -109,6 +109,7 @@ module.exports = {
         phoneId: cartItems.id_phone,
         img: cartItems.img_phone,
         namaPhone: cartItems.nama_phone,
+        desc: cartItems.description,
         harga: cartItems.harga,
         hargaAsli: hargaAsli,
         shipping: shipping,
