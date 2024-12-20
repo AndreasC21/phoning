@@ -138,3 +138,16 @@ function applyVoucher() {
       console.error("Error applying voucher:", error);
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("popup");
+  const closeButton = document.getElementById("close-popup");
+
+  //MENAMPILKAN POPUP
+  popup.style.display = "block";
+
+  //MENUTUP POPUP
+  closeButton.addEventListener("click", function () {
+    popup.style.display = "none";
+  });
+});

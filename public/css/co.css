@@ -477,12 +477,12 @@ h3 {
   transform: translate(-50%, -50%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  width: 400px;
+  width: 600px;
   background: #fff;
   border-radius: 6px;
   left: 50%;
   text-align: center;
-  padding: 0 30px 30px;
+  padding: 0 30px 50px;
   color: #333;
   border: 1px solid #ccc;
 }
@@ -495,6 +495,7 @@ h3 {
   border-radius: 6px;
   text-align: center;
   padding: 0 30px 30px;
+  margin-bottom: 100px;
   color: #333;
   border: 1px solid #ccc;
 }
@@ -507,12 +508,6 @@ h3 {
   width: 100%;
   height: 100%;
   z-index: -1;
-}
-
-#popup button {
-  background-color: #1f2d51;
-  color: #ffffff;
-  padding: 5px 20px;
 }
 
 .popup-trans img {
@@ -544,8 +539,14 @@ h3 {
   margin-top: 20px;
 }
 
+.popup button:hover {
+  background-color: #2a326c;
+  transform: scale(0.99);
+  transition: transform 0.3s ease;
+}
+
 .popup a {
-  font-size: 13px;
+  text-decoration: none;
 }
 
 .payment-container {

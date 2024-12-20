@@ -19,6 +19,34 @@
     ></script>
   </head>
   <body>
+    <div id="popup" class="popup" style="display: none">
+      <h2>Read before checkout!</h2>
+      <p>
+        After checkout, a payment page will appear that is connected to
+        Midtrans, keep in mind that this payment is not real and only a
+        simulation, you can simulate payments to the simulation website provided
+        by Midtrans, namely
+        <a
+          href="https://docs.midtrans.com/docs/testing-payment-on-sandbox"
+          target="_blank"
+          >https://docs.midtrans.com/docs/testing-payment-on-sandbox. </a
+        >Please follow the steps on the website according to the payment method
+        you choose later. <br /><br />
+        Setelah checkout, akan muncul payment page yang terhubung dengan
+        Midtrans, perlu diingat bahwa pembayaran ini tidak nyata dan hanya
+        simulasi, anda bisa melakukan simulasi pembayaran ke website simulasi
+        yang disediakan oleh midtrans, yaitu
+        <a
+          href="https://docs.midtrans.com/docs/testing-payment-on-sandbox"
+          target="_blank"
+          >https://docs.midtrans.com/docs/testing-payment-on-sandbox.
+        </a>
+        Silakan ikuti langkah langkah dalam website tersebut sesuai metode
+        pembayaran yang anda pilih nanti.<br />
+      </p>
+      <button id="close-popup">Tutup</button>
+    </div>
+
     <!-- Nav -->
     <header class="header">
       <div class="header-content">
@@ -208,7 +236,7 @@
       <div id="popup" class="popup" style="display: none">
         <h2>Peringatan</h2>
         <p id="popup-message"></p>
-        <button id="close-popup">Tutup</button>
+        <a href="/profile"><button id="close-popup">Ke Profile</button></a>
       </div>
 
       <input type="hidden" id="phoneId" value="<%= phoneId %>" />
