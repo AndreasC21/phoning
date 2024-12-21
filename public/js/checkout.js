@@ -1,6 +1,6 @@
 // Fungsi untuk menampilkan popup
 function showPopup(message) {
-  const popup = document.getElementById("popup");
+  const popup = document.getElementById("popup-email");
   const popupMessage = document.getElementById("popup-message");
   popupMessage.innerText = message;
   popup.style.display = "block";
